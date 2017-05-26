@@ -13,19 +13,19 @@ class GreetingManager:
 
     def greet(self, name):
         if name not in self.people_greeted:
-            print "New person found!"
+            print("New person found!")
             self.people_greeted[name] = False
 
         if self.people_greeted[name]:
-            print name + " has already been greeted! I'll greet you again soon"
+            print(name + " has already been greeted! I'll greet you again soon")
         else:
-            print "Greeting " + name + "..."
+            print("Greeting " + name + "...")
             self.people_greeted[name] = True
             self.mqtt_client.publish("say", self.get_greeting(datetime.datetime.now(), name))
             Timer(self.greeting_timeout, self.reset_greeted, [name]).start()
 
     def reset_greeted(self, name):
-        print "Looks like it's time to greet " + name + " again!"
+        print("Looks like it's time to greet " + name + " again!")
         self.people_greeted[name] = False
 
     def get_greeting(self, time, name):

@@ -36,9 +36,10 @@ for directory, subdirectories, files in os.walk(root_dir):
     for dirs in subdirectories:
         for directory, subdirectories, files in os.walk(dirs):
             for f in files:
-                face_encoding = face_recognition.face_encodings(face_recognition.load_image_file(root_dir+'/'+dirs+'/'+f))[0]
-                known_faces.append(face_encoding)
-                face_names.append(dirs)
+                if f.endswith(".jpg" or ".png" or ".jpeg"):
+                    face_encoding = face_recognition.face_encodings(face_recognition.load_image_file(root_dir+'/'+dirs+'/'+f))[0]
+                    known_faces.append(face_encoding)
+                    face_names.append(dirs)
 
 while True:
     # Grab a single frame of video
