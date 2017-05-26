@@ -1,0 +1,8 @@
+# default env config
+.env
+
+# node
+node_modules/
+
+# assets directory with images
+assets/
