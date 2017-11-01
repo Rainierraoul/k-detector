@@ -9,7 +9,7 @@ from itertools import compress
 from greeting_manager import GreetingManager
 
 # Create a GreetingManager
-greeting_manager = GreetingManager(60, "192.168.0.102") # TODO: load host from env?
+greeting_manager = GreetingManager(60, "192.168.1.100") # TODO: load host from env?
 
 #video_capture = cv2.VideoCapture(0)
 camera = picamera.PiCamera()

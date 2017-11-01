@@ -21,7 +21,7 @@ class GreetingManager:
         else:
             print("Greeting " + name + "...")
             self.people_greeted[name] = True
-            self.mqtt_client.publish("say", self.get_greeting(datetime.datetime.now(), name))
+            self.mqtt_client.publish("events/actuation/say/request", self.get_greeting(datetime.datetime.now(), name))
             Timer(self.greeting_timeout, self.reset_greeted, [name]).start()
 
     def reset_greeted(self, name):
